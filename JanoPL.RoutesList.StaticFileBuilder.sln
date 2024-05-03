@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "src\build\_build.csproj", "{3A518A40-7705-4FD5-BA28-D95986DE4C3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A293A48F-7B29-4949-83DA-FDBB3478FC6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JanoPL.RoutesList.StaticFileBuilder", "src\JanoPL.RoutesList.StaticFileBuilder\JanoPL.RoutesList.StaticFileBuilder.csproj", "{355223DD-0954-4068-8F0C-C9AB6D2CEA30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A518A40-7705-4FD5-BA28-D95986DE4C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A518A40-7705-4FD5-BA28-D95986DE4C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{355223DD-0954-4068-8F0C-C9AB6D2CEA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{355223DD-0954-4068-8F0C-C9AB6D2CEA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{355223DD-0954-4068-8F0C-C9AB6D2CEA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{355223DD-0954-4068-8F0C-C9AB6D2CEA30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A518A40-7705-4FD5-BA28-D95986DE4C3C} = {A293A48F-7B29-4949-83DA-FDBB3478FC6B}
+		{355223DD-0954-4068-8F0C-C9AB6D2CEA30} = {A293A48F-7B29-4949-83DA-FDBB3478FC6B}
+	EndGlobalSection
+EndGlobal
