@@ -48,6 +48,7 @@ class Build : NukeBuild
                 Log.Information($"Configuration : {Configuration}");
                 Log.Information($"TestResultDirectory : {TestResultDirectory}");
                 Log.Information($"Solution path : {Solution}"); 
+                Log.Information("GitVersion = {Value}", GitVersion.MajorMinorPatch);
             });
 
     Target Preparation =>
