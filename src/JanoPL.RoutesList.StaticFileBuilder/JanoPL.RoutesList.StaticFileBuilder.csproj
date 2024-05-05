@@ -6,6 +6,10 @@
         <Nullable>enable</Nullable>
         
         <GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
+        
+        <Title>RoutesList.StaticFileBuilder</Title>
+        
+        <Copyright>JanoPL</Copyright>
     </PropertyGroup>
 
     <ItemGroup>
