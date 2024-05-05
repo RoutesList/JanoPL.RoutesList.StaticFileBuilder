@@ -1,5 +1,6 @@
 using System.Linq;
 using Nuke.Common;
+using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
@@ -8,16 +9,32 @@ using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Serilog;
 
+[GitHubActions(
+    "Push",
+    GitHubActionsImage.WindowsLatest,
+    AutoGenerate = true,
+    OnPushBranchesIgnore = new[] {"master", "main"},
+    OnPullRequestBranches = new[] {"master"},
+    InvokedTargets = new[] { nameof(RunTests) }
+    
+)]
+[GitHubActions(
+    "Pack",
+    GitHubActionsImage.WindowsLatest,
+    AutoGenerate = true,
+    OnPullRequestTags = new[] { "v[0-9]+.[0-9]+.[0-9]+" },
+    InvokedTargets = new[] { nameof(Pack) }
+    )]
 class Build : NukeBuild
 {
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
     [Solution] readonly Solution Solution;
-
     [Parameter] readonly AbsolutePath TestResultDirectory = RootDirectory + "/.nuke/Artifacts/Test-Results/";
-    
+
     [GitVersion] GitVersion GitVersion;
+    [Parameter] AbsolutePath ArtifactsDirectory => RootDirectory + "/.nuke/Artifacts";
 
     Target LogInformation =>
         definition =>
@@ -30,19 +47,22 @@ class Build : NukeBuild
                 Log.Information($"Solution path : {Solution}");
                 Log.Information("GitVersion = {Value}", GitVersion.MajorMinorPatch);
             });
-    
+
     Target Preparation =>
         definition => definition.DependsOn(LogInformation)
             .Executes(() =>
             {
+                ArtifactsDirectory.CreateOrCleanDirectory();
+                Log.Information($"Directory {ArtifactsDirectory.Name} : create or clean");
+
                 TestResultDirectory.CreateOrCleanDirectory();
                 Log.Information($"Directory {TestResultDirectory.Name} : create or clean");
-                
+
                 DotNetTasks.DotNetClean();
                 Log.Information($"Solution has been clean : {Solution.Name}");
             });
 
-    
+
     Target Restore =>
         definition =>
             definition.DependsOn(Preparation)
@@ -90,5 +110,27 @@ class Build : NukeBuild
                                 )
                     );
                 });
-    public static int Main() => Execute<Build>(x => x.RunTests);
+
+    Target Pack =>
+        definition =>
+            definition
+                .DependsOn(RunTests)
+                .Produces(ArtifactsDirectory)
+                .Executes(() =>
+                    {
+                        var projectToPack = Solution.GetProject("JanoPL.RoutesList.StaticFileBuilder");
+
+                        DotNetTasks.DotNetPack(
+                            configurator =>
+                                configurator
+                                    .SetProject(Solution)
+                                    .SetConfiguration(Configuration)
+                                    .SetVersion(GitVersion.NuGetVersion)
+                                    .SetOutputDirectory(ArtifactsDirectory)
+                                    .SetNoBuild(true)
+                        );
+                    }
+                );
+
+    public static int Main() => Execute<Build>(x => x.Pack);
 }

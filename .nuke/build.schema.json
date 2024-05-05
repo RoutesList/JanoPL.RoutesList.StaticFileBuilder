@@ -6,6 +6,9 @@
     "build": {
       "type": "object",
       "properties": {
+        "ArtifactsDirectory": {
+          "type": "string"
+        },
         "Configuration": {
           "type": "string",
           "description": "Configuration to build - Default is 'Debug' (local) or 'Release' (server)",
@@ -74,6 +77,7 @@
             "enum": [
               "Compile",
               "LogInformation",
+              "Pack",
               "Preparation",
               "Restore",
               "RunTests"
@@ -92,6 +96,7 @@
             "enum": [
               "Compile",
               "LogInformation",
+              "Pack",
               "Preparation",
               "Restore",
               "RunTests"
