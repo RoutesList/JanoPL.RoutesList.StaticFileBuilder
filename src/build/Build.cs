@@ -16,14 +16,16 @@ using Serilog;
     AutoGenerate = true,
     OnPushBranchesIgnore = new[] { "master", "main" },
     OnPullRequestBranches = new[] { "master" },
-    InvokedTargets = new[] { nameof(RunTests) }
+    InvokedTargets = new[] { nameof(RunTests) },
+    FetchDepth = 0
 )]
 [GitHubActions(
     "Pack",
     GitHubActionsImage.WindowsLatest,
     AutoGenerate = true,
     OnPullRequestTags = new[] { "v[0-9]+.[0-9]+.[0-9]+" },
-    InvokedTargets = new[] { nameof(Pack) }
+    InvokedTargets = new[] { nameof(Pack) },
+    FetchDepth = 0
 )]
 class Build : NukeBuild
 {
@@ -45,7 +47,7 @@ class Build : NukeBuild
                 Log.Information($"Solution directory : {Solution.Directory}");
                 Log.Information($"Configuration : {Configuration}");
                 Log.Information($"TestResultDirectory : {TestResultDirectory}");
-                Log.Information($"Solution path : {Solution}");
+                Log.Information($"Solution path : {Solution}"); 
             });
 
     Target Preparation =>
