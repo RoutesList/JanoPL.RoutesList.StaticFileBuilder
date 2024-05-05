@@ -1,6 +1,7 @@
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
+using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
@@ -13,10 +14,9 @@ using Serilog;
     "Push",
     GitHubActionsImage.WindowsLatest,
     AutoGenerate = true,
-    OnPushBranchesIgnore = new[] {"master", "main"},
-    OnPullRequestBranches = new[] {"master"},
+    OnPushBranchesIgnore = new[] { "master", "main" },
+    OnPullRequestBranches = new[] { "master" },
     InvokedTargets = new[] { nameof(RunTests) }
-    
 )]
 [GitHubActions(
     "Pack",
@@ -24,7 +24,7 @@ using Serilog;
     AutoGenerate = true,
     OnPullRequestTags = new[] { "v[0-9]+.[0-9]+.[0-9]+" },
     InvokedTargets = new[] { nameof(Pack) }
-    )]
+)]
 class Build : NukeBuild
 {
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
@@ -32,6 +32,7 @@ class Build : NukeBuild
 
     [Solution] readonly Solution Solution;
     [Parameter] readonly AbsolutePath TestResultDirectory = RootDirectory + "/.nuke/Artifacts/Test-Results/";
+    [GitRepository] GitRepository GitRepository;
 
     [GitVersion] GitVersion GitVersion;
     [Parameter] AbsolutePath ArtifactsDirectory => RootDirectory + "/.nuke/Artifacts";
@@ -118,16 +119,16 @@ class Build : NukeBuild
                 .Produces(ArtifactsDirectory)
                 .Executes(() =>
                     {
-                        var projectToPack = Solution.GetProject("JanoPL.RoutesList.StaticFileBuilder");
-
                         DotNetTasks.DotNetPack(
                             configurator =>
                                 configurator
                                     .SetProject(Solution)
                                     .SetConfiguration(Configuration)
-                                    .SetVersion(GitVersion.NuGetVersion)
+                                    .SetVersion(GitVersion.MajorMinorPatch)
                                     .SetOutputDirectory(ArtifactsDirectory)
                                     .SetNoBuild(true)
+                                    .SetSymbolPackageFormat(DotNetSymbolPackageFormat.snupkg)
+                                    .SetIncludeSymbols(true)
                         );
                     }
                 );
