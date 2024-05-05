@@ -34,7 +34,7 @@ class Build : NukeBuild
     [Parameter] readonly AbsolutePath TestResultDirectory = RootDirectory + "/.nuke/Artifacts/Test-Results/";
     [GitRepository] GitRepository GitRepository;
 
-    [GitVersion] GitVersion GitVersion;
+    [GitVersion(UpdateBuildNumber = true, Framework = "net8.0")] GitVersion GitVersion;
     [Parameter] AbsolutePath ArtifactsDirectory => RootDirectory + "/.nuke/Artifacts";
 
     Target LogInformation =>
@@ -46,7 +46,6 @@ class Build : NukeBuild
                 Log.Information($"Configuration : {Configuration}");
                 Log.Information($"TestResultDirectory : {TestResultDirectory}");
                 Log.Information($"Solution path : {Solution}");
-                Log.Information("GitVersion = {Value}", GitVersion.MajorMinorPatch);
             });
 
     Target Preparation =>

@@ -2,16 +2,17 @@ assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatch
 assembly-informational-format: '{InformationalVersion}'
 mode: ContinuousDelivery
-branches: 
-  master:
-    increment: Patch
+tag-prefix: '[vV]'
+next-version: 1.0
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
 commit-message-incrementing: Enabled
-tag-prefix: '[vV]'
+branches:
+  master:
+    mode: ContinuousDeployment
+    increment: Patch
 ignore:
   sha: []
 merge-message-formats: {}
-next-version: '1.0'
 update-build-number: true
