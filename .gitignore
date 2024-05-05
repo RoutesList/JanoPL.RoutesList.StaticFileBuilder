@@ -39,6 +39,8 @@ x64/
 *.vssscc
 .builds
 *.trx
+*.nupkg
+*.snupkg
 
 # NCrunch
 *.ncrunch*
