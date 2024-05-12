@@ -8,18 +8,18 @@ namespace TableBuilderTests;
 public class BuilderTest
 {
     private readonly Builder _tableBuilder = new();
-
+    
     [Fact]
     public void GenerateDataTableTest()
     {
         // Arrange
-        PropertyInfo[] properties = typeof(DataHelper.DataHelper).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        PropertyInfo[] properties = typeof(DataHelper.TestModel).GetProperties(BindingFlags.Public | BindingFlags.Instance);
         
-        IList<DataHelper.DataHelper> list = new List<DataHelper.DataHelper>();
+        IList<DataHelper.TestModel> list = new List<DataHelper.TestModel>();
         for (int i = 1; i <= 3; i++) {
-            string text = "test" + i.ToString();
+            string text = $"test{i}";
             
-            DataHelper.DataHelper helper = new()
+            DataHelper.TestModel helper = new()
             {
                 Property1 = text,
                 Property2 = text,
