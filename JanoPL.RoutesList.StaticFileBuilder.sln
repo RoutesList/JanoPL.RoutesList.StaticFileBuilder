@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JanoPL.RoutesList.StaticFil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexCompilerTests", "tests\IndexCompilerTests\IndexCompilerTests.csproj", "{783BE0D1-25C4-43F8-AC6B-330815FF6425}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "janoPL.RoutesList.HtmlBuilder", "src\janoPL.RoutesList.HtmlBuilder\janoPL.RoutesList.HtmlBuilder.csproj", "{6C09E684-A6EB-4CEB-8C6F-F9846F4AD5CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JanoPL.RoutesList.HtmlBuilder", "src\JanoPL.RoutesList.HtmlBuilder\JanoPL.RoutesList.HtmlBuilder.csproj", "{6C09E684-A6EB-4CEB-8C6F-F9846F4AD5CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JanoPL.RoutesList.TableBuilder", "src\JanoPL.RoutesList.TableBuilder\JanoPL.RoutesList.TableBuilder.csproj", "{4292BB24-1FD9-4B95-A079-EAAFB09842CF}"
 EndProject
@@ -21,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableBuilderTests", "tests\TableBuilderTests\TableBuilderTests.csproj", "{B4EF7B3F-2CAE-4227-A783-D56F89E22565}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticFileLoaderTests", "tests\StaticFileLoaderTests\StaticFileLoaderTests.csproj", "{ABC95C98-B469-4E79-9AEE-10D300ACE3A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlBuilderTests", "tests\HtmlBuilderTests\HtmlBuilderTests.csproj", "{1CE3D158-0B72-4155-9AC5-07136AFAEA73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{ABC95C98-B469-4E79-9AEE-10D300ACE3A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABC95C98-B469-4E79-9AEE-10D300ACE3A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABC95C98-B469-4E79-9AEE-10D300ACE3A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE3D158-0B72-4155-9AC5-07136AFAEA73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE3D158-0B72-4155-9AC5-07136AFAEA73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE3D158-0B72-4155-9AC5-07136AFAEA73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE3D158-0B72-4155-9AC5-07136AFAEA73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3A518A40-7705-4FD5-BA28-D95986DE4C3C} = {A293A48F-7B29-4949-83DA-FDBB3478FC6B}
@@ -73,5 +79,6 @@ Global
 		{86157892-90E0-4BA5-AB39-18CE3CBE6FDC} = {2BA8ED7D-A1D6-43F6-8434-125034ADF4EC}
 		{B4EF7B3F-2CAE-4227-A783-D56F89E22565} = {2BA8ED7D-A1D6-43F6-8434-125034ADF4EC}
 		{ABC95C98-B469-4E79-9AEE-10D300ACE3A5} = {2BA8ED7D-A1D6-43F6-8434-125034ADF4EC}
+		{1CE3D158-0B72-4155-9AC5-07136AFAEA73} = {2BA8ED7D-A1D6-43F6-8434-125034ADF4EC}
 	EndGlobalSection
 EndGlobal
