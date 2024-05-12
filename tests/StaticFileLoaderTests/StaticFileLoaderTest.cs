@@ -15,7 +15,7 @@ public class StaticFileLoaderTest : IDisposable
         // Arrange
         const string nameTest = "DataHelper.Data.index.html";
         var stream = LoadTestFile(nameTest);
-        var helper = new DataHelper.DataHelper();
+        var helper = new DataHelper.TestModel();
         _fileLoader.SetAssembly(helper.GetType().Assembly);
 
         // Act
@@ -28,7 +28,7 @@ public class StaticFileLoaderTest : IDisposable
     
     private Stream LoadTestFile(string name)
     {
-        var helper = new DataHelper.DataHelper();
+        var helper = new DataHelper.TestModel();
         var stream = helper.GetType().Assembly.GetManifestResourceStream(name);
         
         Assert.NotNull(stream);
