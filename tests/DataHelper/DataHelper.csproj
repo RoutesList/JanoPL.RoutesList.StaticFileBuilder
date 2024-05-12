@@ -13,4 +13,12 @@
     <Resource Include="Data\index.html" />
     <EmbeddedResource Include="Data\index.html" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\TablePartialView.html" />
+    <EmbeddedResource Include="Data\TablePartialView.html" />
+  </ItemGroup>
+  <ItemGroup>
+      <Resource Include="Data\PartialTableViewExpected.html" />
+      <EmbeddedResource Include="Data\PartialTableViewExpected.html" />
+  </ItemGroup>
 </Project>
