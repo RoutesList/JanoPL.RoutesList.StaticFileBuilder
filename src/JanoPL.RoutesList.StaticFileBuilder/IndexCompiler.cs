@@ -12,8 +12,8 @@ public class IndexCompiler(StringBuilder stringBuilder, ConfigDto config)
     private Dictionary<string, string>? _footer;
     private Dictionary<string, string>? _header;
 
-    private static string BodyContent => string.Empty;
-    private static string AdditionalHeader => string.Empty;
+    public string BodyContent { private get; set; } = string.Empty;
+    private static string AdditionalHeader { get; } = string.Empty;
 
 
     public StringBuilder CompileIndex(bool compileHeader = true)
@@ -92,9 +92,7 @@ public class IndexCompiler(StringBuilder stringBuilder, ConfigDto config)
     {
         if (data == null) return;
 
-        foreach (var item in data) {
-            stringBuilder.Replace(item.Key, item.Value);
-        }
+        foreach (var item in data) stringBuilder.Replace(item.Key, item.Value);
     }
 
     private void GetIndexBody()
@@ -109,8 +107,8 @@ public class IndexCompiler(StringBuilder stringBuilder, ConfigDto config)
     {
         _header = new Dictionary<string, string>
         {
-            { "$(charsetEncoding)", ConfigDto.CharSet},
-            { "$(title)", ConfigDto.Title},
+            { "$(charsetEncoding)", ConfigDto.CharSet },
+            { "$(title)", ConfigDto.Title },
             { "$(additionalHead)", AdditionalHeader },
             { "$(description)", ConfigDto.Description }
         };
