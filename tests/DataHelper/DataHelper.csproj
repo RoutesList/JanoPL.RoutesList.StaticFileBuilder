@@ -1,14 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <Resource Include="Data\index.html" />
-      <EmbeddedResource Include="Data\index.html" />
-    </ItemGroup>
-
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0-v1-0-0-CI.1+19.Branch.v1.0.0-CI.Sha.d6e2e95b2abb272f9e60bf7cd94c87f192656b98</InformationalVersion>
+    <Version>1.0.0-v1-0-0-ci0001</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Data\index.html" />
+    <EmbeddedResource Include="Data\index.html" />
+  </ItemGroup>
 </Project>

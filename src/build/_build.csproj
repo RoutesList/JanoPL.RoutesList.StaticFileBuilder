@@ -1,22 +1,27 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
-        <RootNamespace></RootNamespace>
-        <NoWarn>CS0649;CS0169;CA1050;CA1822;CA2211;IDE1006</NoWarn>
-        <NukeRootDirectory>..\..</NukeRootDirectory>
-        <NukeScriptDirectory>..\..</NukeScriptDirectory>
-        <NukeTelemetryVersion>1</NukeTelemetryVersion>
-        <IsPackable>false</IsPackable>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Nuke.Common" Version="8.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageDownload Include="GitVersion.Tool" Version="[5.12.0]" />
-    </ItemGroup>
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace></RootNamespace>
+    <NoWarn>CS0649;CS0169;CA1050;CA1822;CA2211;IDE1006</NoWarn>
+    <NukeRootDirectory>..\..</NukeRootDirectory>
+    <NukeScriptDirectory>..\..</NukeScriptDirectory>
+    <NukeTelemetryVersion>1</NukeTelemetryVersion>
+    <IsPackable>false</IsPackable>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0-v1-0-0-CI.1+19.Branch.v1.0.0-CI.Sha.d6e2e95b2abb272f9e60bf7cd94c87f192656b98</InformationalVersion>
+    <Version>1.0.0-v1-0-0-ci0001</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Nuke.Common" Version="8.0.0" />
+    <PackageReference Include="GitVersion.CommandLine" Version="5.12.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageDownload Include="GitVersion.CommandLine" Version="[5.12.0]" />
+    <PackageDownload Include="GitVersion.Tool" Version="[5.12.0]" />
+  </ItemGroup>
 </Project>
