@@ -34,5 +34,6 @@
     <ProjectReference Include="..\..\src\JanoPL.RoutesList.StaticFileBuilder\JanoPL.RoutesList.StaticFileBuilder.csproj" />
     <ProjectReference Include="..\..\src\JanoPL.RoutesList.StaticFileLoader\JanoPL.RoutesList.StaticFileLoader.csproj" />
     <ProjectReference Include="..\DataHelper\DataHelper.csproj" />
+    <ProjectReference Include="..\TableBuilderTests\TableBuilderTests.csproj" />
   </ItemGroup>
 </Project>
